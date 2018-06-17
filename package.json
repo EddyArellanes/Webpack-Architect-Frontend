@@ -4,9 +4,9 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "webpack-local": "webpack --mode development",
+    "webpack-local": "webpack --mode development --watch",
     "webpack-build": "webpack app/js/index.js --output dist/bundle.js --mode development",
-    "test": "webpack-dev-server --open --config webpack.config.js --mode development"
+    "test": "webpack-dev-server --config webpack.config.js --mode development --hot"
   },
   "keywords": [],
   "author": "",
