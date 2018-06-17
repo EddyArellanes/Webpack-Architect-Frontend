@@ -1,7 +1,10 @@
-//CommonJS Sintax
+//normally, plugins are a nodejs packages, then we need to import them
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
     entry: './app/js/index.js',
     output: {
+        path: path.resolve(__dirname, 'dist/js'),
         filename: 'bundle.js'
     },
     module: {
@@ -12,16 +15,24 @@ module.exports = {
             */            
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                  ],
             }
             
         ]
-    }
+    },
+    plugins: [
+        //Plugins here, algo you can use [name] in the name of file and the output filename will be the same as the entry
+        new MiniCssExtractPlugin({
+            filename: "[name].css"
+        })
+    ]
 
 }
-/*By Default if you don't specify a folder for bundle js, the folder where will be create is dist
-If you want to change the folder in output add for example:
-const path= require('path')
-And in output:
-path: path.join(__dirname, 'public'),
+/* 
+You are using the style-loader, which, by default, embeds your CSS in Javascript and injects it at runtime.
+If you want real CSS files instead of CSS embedded in your Javascript, you should use the ExtractTextPlugin.
 */
