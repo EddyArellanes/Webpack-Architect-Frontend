@@ -1,1 +1,1 @@
-console.log("Mirameee")
+import "../css/app.scss"
