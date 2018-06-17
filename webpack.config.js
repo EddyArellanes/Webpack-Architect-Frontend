@@ -1,6 +1,8 @@
 //normally, plugins are a nodejs packages, then we need to import them
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 module.exports = {
     entry: {
         main: './app/js/index.js'
@@ -9,7 +11,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/bundle.js'
     },
-    devServer: {                
+    devServer: {       
+        contentBase: './dist',
         compress: true,
         open: true,
         port: 3000,
@@ -34,6 +37,10 @@ module.exports = {
     },
     plugins: [
         //Plugins here, algo you can use [name] in the name of file and the output filename will be the same as the entry
+        new HtmlWebpackPlugin({
+            template: __dirname + '/dist/index.html',
+            filename: 'index.html'
+        }),
         new MiniCssExtractPlugin({
             filename: "css/[name].css"
         })
