@@ -49,6 +49,21 @@ module.exports = {
 
 }
 /* 
-You are using the style-loader, which, by default, embeds your CSS in Javascript and injects it at runtime.
-If you want real CSS files instead of CSS embedded in your Javascript, you should use the ExtractTextPlugin.
+Webpack Minimalist Configuration with all you need to begin a Frontend Architect
+webpack-dev-server: For set up Local Server with Watch and Hot Reload
+
+HTML Plugin for Hot Reloading
+html-webpack-plugin
+
+Css Loader for Transpile Css and Precompilers Like SASS
+css-loader: Recognize css files
+style-loader: Recognize inline styles of css
+sass-loader: Recognize scss files
+node-sass: Transspile scss to css
+mini-css-extract-plugin: Get the final production css file
+
+Javascript Loader for Transpile all new features to ES5
+babel-loader : Charge Javascript files
+core-babel : Indicates the way yo transpile
+babel-preset-env: Targets the ECMA version to transpile
 */
