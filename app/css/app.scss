@@ -1,8 +1,32 @@
+@import "./modules/_variables.scss";
+@import "./modules/_mixins.scss";
 body{
     margin: 0;        
+    background-image: url('../img/hawk.png');
+    background-position-y: 90%;
+    background-position-x: 85%;
+    background-size: 30%;
+    background-repeat: no-repeat;   
 }
 .grid-container{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    
+    display: grid;    
+    grid-template-columns: repeat(6,1fr);   
+}
+.grid-item{
+    grid-row-gap: 2px;
+}
+
+.cover{
+    @include absolute-cover;
+    &.parallax{
+        background-image: url('../img/megaman.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }  
+    p{
+        @include caption;
+        background-color: rgba($blue, 0.9);                            
+    }
+
 }

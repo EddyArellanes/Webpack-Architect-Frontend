@@ -14,7 +14,7 @@ module.exports = {
     devServer: {       
         contentBase: './dist',
         compress: true,
-        open: true,
+        open: false,
         port: 3000,
         publicPath: "/dist"
     },
@@ -23,7 +23,28 @@ module.exports = {
             /*Here we put the Loaders
             test: Kind of files that I want to recognize
             use: What loader will be recognize the file
-            */            
+            */
+            //Javascript Loaders
+            //It's a little more complex than css
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {                        
+                        limit: 2097152,
+                    }
+                }
+            },
+            {
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['babel-preset-env']
+                    }
+                },
+            },            
+            //Css Loaders
             {
                 test: /\.scss$/,
                 use: [
@@ -64,6 +85,10 @@ mini-css-extract-plugin: Get the final production css file
 
 Javascript Loader for Transpile all new features to ES5
 babel-loader : Charge Javascript files
-core-babel : Indicates the way yo transpile
+babel-core : Indicates the way yo transpile
 babel-preset-env: Targets the ECMA version to transpile
+
+Images
+url-loader : A loader for webpack which transforms files into base64 URIs. Useful for optimize css and js when you need  to import files
+file-loader: Specifies an alternative loader to use when a target file's size exceeds the limit set in the limit option. maximum size of a file in bytes
 */
