@@ -1,19 +1,18 @@
 @import "./modules/_variables.scss";
 @import "./modules/_mixins.scss";
 body{
-    margin: 0;        
-    background-image: url('../img/hawk.png');
-    background-position-y: 90%;
-    background-position-x: 85%;
-    background-size: 30%;
-    background-repeat: no-repeat;   
+    margin: 0;            
 }
 .grid-container{
     display: grid;    
     grid-template-columns: repeat(6,1fr);   
 }
 .grid-item{
+    margin-left: 10px;
     grid-row-gap: 2px;
+    h2{                
+        border-bottom: 1px solid black;
+    }
 }
 
 .cover{
@@ -30,3 +29,86 @@ body{
     }
 
 }
+#characters{
+    padding-top: 30px;
+}
+#banners{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: minmax(50vh, 100vh);
+    grid-column-start: 1;
+    background-image: url('../img/megaman.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.fab {
+    //Position
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    //Size
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 40px;
+    text-align: center;
+    line-height: 70px;
+    //Design
+    color: white;
+    background-color: $blue-dark;
+    box-shadow: 0 6px 10px 0 #666;
+    //Animations
+    transition: all 0.1s ease-in-out;
+ }
+  
+ .fab:hover {
+    cursor: pointer;
+    box-shadow: 0 6px 14px 0 #666;
+    transform: scale(1.05);
+ }
+ .btn {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 30px;    
+    border-radius: 2px;
+    width: 120px;
+    height: 36px;
+    color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .15), 0 3px 1px -2px rgba(0, 0, 0, .20), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    border: none;
+    background: $blue-dark 50%;    
+  }
+  .btn:active {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.50);
+    background: -webkit-radial-gradient(circle, $blue-dark 10%, $blue 10%) 50% no-repeat;
+    background: radial-gradient(circle, $blue-dark 10%, $blue 1%) 50% no-repeat;
+    background-size: 1020%;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+  .float-character{
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+      img{
+          min-width: 70px;
+          max-width: 150px;
+          transition: all 0.2s ease-in;
+      }
+      img:hover{
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+      img:active{
+        transform: scale(2.05);
+      }
+  }
+  @media (max-width: 960px){
+    #banners{
+        background-image: url('../img/Mega-Man-X-Legacy-Collection.jpg');
+    }
+  }
