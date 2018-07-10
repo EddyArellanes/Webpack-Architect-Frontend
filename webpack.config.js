@@ -2,6 +2,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
     entry: {
@@ -66,7 +67,18 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                   ],
-            }
+            },
+            //VueJs Loader
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                  loaders: {                    
+                    'scss': 'vue-style-loader!css-loader!sass-loader',
+                    'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                  }
+                }
+            },
             
         ]
     },
@@ -78,7 +90,8 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: "css/[name].css"
-        })
+        }),
+        new VueLoaderPlugin()
     ],
     
 
@@ -114,5 +127,23 @@ To support fonts in the process of webpack the only thing we need is in url-load
 woff|eot|ttf|svg
 I have downloaded fonts from
 https://www.fontsquirrel.com specify open sans webkit to support to display font without the need for the user to have it installed
+
+
+Json
+Webpack 4 handles Json by default
+
+
+Frameworks
+Vuejs
+vue-loader: To recognize VueJs Commponents called Single-File Components (SFCs). .Vue extensions
+vue-template-compiler: his package can be used to pre-compile Vue 2.0 templates into render functions 
+vue-style-loader: To load styles inside Components .Vue
+
+ReactJs
+babel-preset-react: To transpile React to Js
+react: Core of Library
+react-dom: Needed to render into Html React 
+And in babel-loader
+presets:['es2015','react']
 */
 
