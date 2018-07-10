@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
    <h1>Yeii</h1>
 </template>
 <script>
@@ -6,7 +6,7 @@
 
    }
 </script>
-<style lang="scss">
+<style>
    h1{
        background-color: aquamarine;
    }

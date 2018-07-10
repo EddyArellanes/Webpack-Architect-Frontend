@@ -61,6 +61,14 @@ module.exports = {
             },            
             //Css Loaders
             {
+                test: /\.css$/,
+                use: [
+                  //Add support in css for VueJs Inline Styles
+                  'vue-style-loader',
+                  'css-loader'
+                ]
+            },
+            {
                 test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -73,7 +81,7 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
-                  loaders: {                    
+                  loaders: {                       
                     'scss': 'vue-style-loader!css-loader!sass-loader',
                     'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
                   }
