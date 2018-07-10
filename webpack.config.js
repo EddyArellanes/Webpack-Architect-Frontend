@@ -63,7 +63,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                  //Add support in css for VueJs Inline Styles
+                  //Add support in css for VueJs Inline Styles, If you are not using Vue, delete it
                   'vue-style-loader',
                   'css-loader'
                 ]
@@ -101,6 +101,16 @@ module.exports = {
         }),
         new VueLoaderPlugin()
     ],
+    //Webpack 4 feature, simplify stuff like prevent duplicated code
+
+    optimization: {
+        //SplitChunks will generate new file with code used in many files to avoid duplicate code
+        splitChunks: {
+            //Will generate a common.js, common.css, etc... 
+            name: "common",
+            chunks: "initial"
+        }
+    }
     
 
 }
@@ -153,5 +163,6 @@ react: Core of Library
 react-dom: Needed to render into Html React 
 And in babel-loader
 presets:['es2015','react']
+
 */
 
