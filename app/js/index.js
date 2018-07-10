@@ -14,7 +14,7 @@ zero.setAttribute('src', zeroImg)
 let video = document.createElement('video')
 video.setAttribute('src', testVideo)
 video.setAttribute('width',480)
-video.setAttribute('autoplay',480)
+video.setAttribute('autostart',0)
 video.setAttribute('controls', true)
 document.body.append(video)
 

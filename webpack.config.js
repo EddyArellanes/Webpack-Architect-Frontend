@@ -46,14 +46,17 @@ module.exports = {
                     options: {      
                         //1 Megabyte                           
                         limit: 1048576,
+                        fallback: 'file-loader',
                         name: 'videos/[name].[hash].[ext]'
+
                     }
                 }
             },
             {
                 test: /\.js$/,
+                exclude: '/(node_modules)/',
                 use: {
-                    loader: 'babel-loader',
+                    loader: 'babel-loader',                    
                     options: {
                         presets: ['babel-preset-env']
                     }
@@ -102,7 +105,7 @@ module.exports = {
         new VueLoaderPlugin()
     ],
     //Webpack 4 feature, simplify stuff like prevent duplicated code
-
+    /*
     optimization: {
         //SplitChunks will generate new file with code used in many files to avoid duplicate code
         splitChunks: {
@@ -111,7 +114,7 @@ module.exports = {
             chunks: "initial"
         }
     }
-    
+    */
 
 }
 /* 

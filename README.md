@@ -1,5 +1,7 @@
 Webpack configurations ready for:
 Css Traspile
+Js Transpile
 Hot reload
-
-Next is Javascript Babel transpile
+Load Video,Images
+Avoid Duplicated Code
+VueJs and React use
